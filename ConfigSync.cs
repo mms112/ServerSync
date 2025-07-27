@@ -945,7 +945,7 @@ public class ConfigSync
 
 	private static Type configType(Type type) => type.IsEnum ? Enum.GetUnderlyingType(type) : type;
 
-	[HarmonyPatch(typeof(ConfigEntryBase), nameof(ConfigEntryBase.GetSerializedValue))]
+	/*[HarmonyPatch(typeof(ConfigEntryBase), nameof(ConfigEntryBase.GetSerializedValue))]
 	private static class PreventSavingServerInfo
 	{
 		[HarmonyPrefix]
@@ -959,7 +959,7 @@ public class ConfigSync
 			__result = TomlTypeConverter.ConvertToString(data.LocalBaseValue, __instance.SettingType);
 			return false;
 		}
-	}
+	}*/
 
 	[HarmonyPatch(typeof(ConfigEntryBase), nameof(ConfigEntryBase.SetSerializedValue))]
 	private static class PreventConfigRereadChangingValues
